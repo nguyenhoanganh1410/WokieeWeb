@@ -1,0 +1,160 @@
+@keyframes fadeIn {
+  
+    from{
+      transform: translateY(-10px);
+    }
+    to{
+      transform: translateY(-18px);
+   }
+   
+}
+
+@keyframes fadeInAfter{
+   
+    from{
+      transform: translateY(-10px) rotate(45deg);
+    }
+    to{
+      transform: translateY(-18px) rotate(45deg);
+   }
+   
+}
+
+
+@keyframes headerScrool {
+   from{
+    transform: translateY(-100%);
+   }
+   to{
+    transform: translateY(0);
+   }
+}
+
+@keyframes scroolDown{
+   0%{
+   transform-origin: top ;
+      transform: scaleY(0);
+      opacity: 0;
+  
+   }
+   100%{
+      transform-origin: top ;
+      transform: scaleY(1);
+      opacity: 1;
+   }
+}
+
+@keyframes leftToRight {
+   from{
+      transform: translateX(-50px);
+      opacity: 0;
+   }
+   to{
+      transform: translateX(0);
+      opacity: 1;
+   }
+}
+
+@keyframes leftToRightAfter {
+   from{
+      transform: translateX(-50px) rotate(45deg);
+      opacity: 0;
+   }
+   to{
+      transform: translateX(0) rotate(45deg);
+      opacity: 1;
+   }
+}
+
+@keyframes ani1{
+      from{
+        
+         opacity: 0;
+      }  
+      to{
+         transform: translateY(0);
+         opacity: 1;
+      }
+}
+@keyframes ani2{
+   from{
+      
+      opacity: 1;
+   }  
+   to{
+     
+      opacity: 0;
+   }
+}
+
+@keyframes textanimation{
+   from{
+      opacity: 0;
+      transform: translateX(-230px);
+   }
+   to{
+   
+      opacity: 1;
+   }
+}
+
+
+//truot xuong duoi 1 doan va bien mat
+@keyframes downward{
+   from{
+      opacity: 0;
+      transform: translateY(-200px);
+   }
+   to{
+      transform: translateY(0px);
+      opacity: 1;
+   }
+}
+
+//truot xuong tren 1 doan va bien mat
+@keyframes upward{
+   from{
+      opacity: 1;
+      transform: translateY(0px);
+   }
+   to{
+      transform: translateY(-100px);
+      opacity: 0;
+   }
+}
+
+//truot xuong tren 1 doan cho title color
+@keyframes colorAnimation__after{
+   from{
+      opacity: 0;
+      transform: translateY(-30px);
+   }
+   to{
+     // transform: translateY(-100px);
+      opacity: 1;
+   }
+}
+
+@keyframes colorAnimation__before{
+   from{
+      opacity: 0;
+      transform: translateY(-30px);
+   }
+   to{
+     // transform: translateY(-100px);
+      opacity: 1;
+   }
+}
+
+
+//animation cho header tab reponsive
+@keyframes tabAnimation{
+   from{
+    
+      transform: translateX(-500px);
+   }
+   to{
+      transform: translateY(0px);
+      
+   }
+}

@@ -1,0 +1,122 @@
+@import "grid";
+@import "animation";
+
+.container{
+    @include xs{
+        width: 100%;
+        padding: 0px 20px;
+    }
+}
+.first-collec{
+    margin-top: 50px;
+  @include xs{
+      margin-top: 20px;
+  }
+  height: 100%;
+    .card{
+        position: relative;
+        cursor: pointer;
+       
+      
+        height: 100%;
+        &:hover{
+              img{
+                  transform:scale(1.1);
+                 
+              }  
+              .content{
+                  background-color: royalblue;
+                  a{
+                      color: white;
+                  }
+              }
+        }
+        .img{
+            overflow: hidden;
+            height: 100%;
+        }
+        img{
+            width: 100%;
+             height: auto;
+            object-fit: cover;
+            transition: all 0.8s;
+        
+          
+        }
+        .content{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: rgba($color: white, $alpha: 0.8);
+            border-radius: 8px;
+            transition: all 0.8s;
+            a{
+                color:black;
+              display: inline-block;
+                padding: 12px 40px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 26px;
+              
+            }
+        }
+    }
+}
+
+
+.second-collec{
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 50px;
+    .card{
+        position: relative;
+        cursor: pointer;
+       
+      
+        height: 100%;
+        &:hover{
+              img{
+                  transform:scale(1.1);
+                 
+              }  
+              .content{
+                  background-color: royalblue;
+                  a{
+                      color: white;
+                  }
+              }
+        }
+        .img{
+            overflow: hidden;
+            height: 100%;
+        }
+        img{
+            width: 100%;
+             height: auto;
+            object-fit: cover;
+            transition: all 0.8s;
+        
+          
+        }
+        .content{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: rgba($color: white, $alpha: 0.7);
+            border-radius: 8px;
+            transition: all 0.8s;
+            a{
+                color:black;
+              display: inline-block;
+                padding: 12px 40px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 26px;
+              
+            }
+        }
+    }
+}
+

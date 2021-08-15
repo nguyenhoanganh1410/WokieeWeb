@@ -1,0 +1,48 @@
+
+@import "library";
+@import "media";
+.searchItems{
+    h2{
+        font-size: 34px;
+        text-align: center;
+        font-weight: 500;
+        line-height: 44px;
+        color: #191919;
+        margin: 50px 0px;
+        @include xs{
+          font-size: 24px;
+        }
+    }
+}
+
+.Panigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    @include xs{
+      margin: 40px 0px !important;
+    }
+}
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+  }

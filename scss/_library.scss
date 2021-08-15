@@ -1,0 +1,233 @@
+//thu vien chua cho : .btn-primary: button
+//form-group: label, input
+//loading
+//color text: .text-white, .tex-danger, .text-primary
+// cho checkbox .term
+
+
+
+$blueLight : #2879fe;
+//cho text-color
+.text-white{
+    color: white;
+}
+.text-danger{
+    color: red;
+}
+.text-primary{
+    color: blue;
+}
+
+
+.btn{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+.btn-primary{
+    background-color: $blueLight;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+     font-size: 14px;
+     text-transform: uppercase;
+    &:hover{
+        background-color: royalblue;
+    }
+}
+
+//check form
+.invalid{
+  
+  border:1px solid red !important;
+ 
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    textarea{
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 400;
+      color: rgba($color: #000000, $alpha: 0.6);
+      background-color: #f7f8fa;
+      border-radius: 5px;
+      border:1px solid #f7f8fa;
+      width: 100%;
+      padding: 10px;
+      resize: vertical;
+      
+      &:focus{
+          background-color: white;
+        
+          outline-color: #2879fe;
+
+      }
+  }
+    input{
+        border-radius: 5px;
+        padding: 10px 15px;
+        background-color: #f7f8fa;
+        font-size: 16px;
+        border:1px solid #f7f8fa;
+        &::placeholder{
+            color: rgba($color: #000000, $alpha: 0.5);
+            font-size: 15px;
+        }
+        &:focus{
+            background-color: white;
+            outline-color: #2879fe;
+            
+        }
+    }
+    label{
+        font-size: 14px;
+        color: #191919;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+    }
+
+}
+
+
+//loading
+//loader
+// <div class="loader"></div>
+.loader  {
+    animation: rotate 1s infinite;  
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    top:50%;
+    left: 48%;
+    transform: translate(-50%,-50%);
+    z-index: 2000;
+    display: none;
+  }
+  
+  .loader:before,
+  .loader:after {   
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 20px;  
+    width: 20px;
+  }
+  .loader:before {
+    animation: ball1 1s infinite;  
+    background-color: #cb2025;
+    box-shadow: 30px 0 0 #f8b334;
+    margin-bottom: 10px;
+  }
+  .loader:after {
+    animation: ball2 1s infinite; 
+    background-color: #00a096;
+    box-shadow: 30px 0 0 #97bf0d;
+  }
+  
+  @keyframes rotate {
+    0% { 
+      -webkit-transform: rotate(0deg) scale(0.8); 
+      -moz-transform: rotate(0deg) scale(0.8);
+    }
+    50% { 
+      -webkit-transform: rotate(360deg) scale(1.2); 
+      -moz-transform: rotate(360deg) scale(1.2);
+    }
+    100% { 
+      -webkit-transform: rotate(720deg) scale(0.8); 
+      -moz-transform: rotate(720deg) scale(0.8);
+    }
+  }
+  
+  @keyframes ball1 {
+    0% {
+      box-shadow: 30px 0 0 #f8b334;
+    }
+    50% {
+      box-shadow: 0 0 0 #f8b334;
+      margin-bottom: 0;
+      -webkit-transform: translate(15px,15px);
+      -moz-transform: translate(15px, 15px);
+    }
+    100% {
+      box-shadow: 30px 0 0 #f8b334;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @keyframes ball2 {
+    0% {
+      box-shadow: 30px 0 0 #97bf0d;
+    }
+    50% {
+      box-shadow: 0 0 0 #97bf0d;
+      margin-top: -20px;
+      -webkit-transform: translate(15px,15px);
+      -moz-transform: translate(15px, 15px);
+    }
+    100% {
+      box-shadow: 30px 0 0 #97bf0d;
+      margin-top: 0;
+    }
+  }
+
+.bg-loader{
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  display: none;
+}
+
+
+  //css cho checkbox
+  .term{
+            
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 22px;
+    cursor: pointer;
+    input:checked{
+      background: #66DE93;
+  }
+      input{
+          appearance: none;
+        
+          width: 20px;
+          height: 20px;
+          background-color: #f7f8fa;
+          border:1px solid #e9e7e7;
+          border-radius: 4px;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          outline: none;
+          &:checked::after{
+              display: block;
+          }
+        
+          &::after{
+              content: '\f00c';
+              font-family: "Font Awesome 5 Free";
+              font-weight: 900;
+              color: white;
+              display: none;
+          }
+      }
+     
+      label{
+          cursor: pointer;
+          margin-left: 6px;
+          font-size: 14px;
+          color: rgba($color: #000000, $alpha: 0.6);
+      }
+}
+
