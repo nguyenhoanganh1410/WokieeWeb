@@ -1230,6 +1230,10 @@ footer .sm-footer_cen .ul {
 	margin-top: 10px;
 }
 
+footer .sm-footer_cen .ul li {
+	padding: 6px 0;
+}
+
 footer .sm-footer_cen .ul li a {
 	font-size: 14px;
 	font-weight: 300;
@@ -1638,7 +1642,7 @@ footer .sm-footer_cen .sm-categori i {
 	width: 22%;
 	height: 70px;
 	border-radius: 5px;
-	background-color: white;
+	background-color: rgba(255, 255, 255, .9);
 	justify-content: center;
 	align-items: center;
 }
@@ -1665,7 +1669,7 @@ footer .sm-footer_cen .sm-categori i {
 
 .card .img img {
 	width: 100%;
-	height: auto;
+	height: 350px;
 	-o-object-fit: cover;
 	object-fit: cover;
 }
@@ -1697,6 +1701,7 @@ footer .sm-footer_cen .sm-categori i {
 
 .card .img .icons span i {
 	font-size: 14px;
+	padding: 8px;
 }
 
 .card .img .icons span:hover {
@@ -1709,7 +1714,8 @@ footer .sm-footer_cen .sm-categori i {
 
 .card .img .icons span:hover.icon_eye::after,
 .card .img .icons span:hover.icon_heart::after,
-.card .img .icons span:hover.icon_compare::after {
+.card .img .icons span:hover.icon_compare::after,
+.card .img .icons span:hover.active-icon_compare::after {
 	display: flex;
 	-webkit-animation: leftToRight .8s forwards;
 	animation: leftToRight .8s forwards;
@@ -1717,14 +1723,15 @@ footer .sm-footer_cen .sm-categori i {
 
 .card .img .icons span:hover.icon_eye::before,
 .card .img .icons span:hover.icon_heart::before,
-.card .img .icons span:hover.icon_compare::before {
+.card .img .icons span:hover.icon_compare::before,
+.card .img .icons span:hover.active-icon_compare::before {
 	display: block;
 	-webkit-animation: leftToRightAfter .8s forwards;
 	animation: leftToRightAfter .8s forwards;
 }
 
 .card .img .icons span.icon_eye::after {
-	font-size: 13px;
+	font-size: 14px;
 	position: absolute;
 	left: -110px;
 	display: flex;
@@ -1744,7 +1751,7 @@ footer .sm-footer_cen .sm-categori i {
 .card .img .icons span.icon_eye::before {
 	position: absolute;
 	z-index: 1;
-	left: -34px;
+	left: -28px;
 	display: none;
 	width: 6px;
 	height: 6px;
@@ -1754,7 +1761,7 @@ footer .sm-footer_cen .sm-categori i {
 }
 
 .card .img .icons span.icon_heart::after {
-	font-size: 13px;
+	font-size: 14px;
 	position: absolute;
 	left: -110px;
 	display: flex;
@@ -1774,7 +1781,7 @@ footer .sm-footer_cen .sm-categori i {
 .card .img .icons span.icon_heart::before {
 	position: absolute;
 	z-index: 1;
-	left: -26px;
+	left: -21px;
 	display: none;
 	width: 6px;
 	height: 6px;
@@ -1784,7 +1791,7 @@ footer .sm-footer_cen .sm-categori i {
 }
 
 .card .img .icons span.icon_compare::after {
-	font-size: 13px;
+	font-size: 14px;
 	position: absolute;
 	left: -140px;
 	display: flex;
@@ -1804,7 +1811,45 @@ footer .sm-footer_cen .sm-categori i {
 .card .img .icons span.icon_compare::before {
 	position: absolute;
 	z-index: 1;
-	left: -34px;
+	left: -26px;
+	display: none;
+	width: 6px;
+	height: 6px;
+	content: '';
+	transform: rotate(45deg);
+	background-color: white;
+}
+
+.card .img .icons span.active-icon_compare {
+	background: #2879fe;
+}
+
+.card .img .icons span.active-icon_compare i {
+	color: white;
+}
+
+.card .img .icons span.active-icon_compare::after {
+	font-size: 14px;
+	position: absolute;
+	left: -140px;
+	display: flex;
+	display: none;
+	width: auto;
+	height: 22px;
+	padding: 0 8px;
+	padding-top: 2px;
+	content: 'Remove To Compare';
+	border-radius: 4px;
+	background-color: white;
+	box-shadow: 0 0 10px -2px rgba(0, 0, 0, .4);
+	justify-content: center;
+	align-items: center;
+}
+
+.card .img .icons span.active-icon_compare::before {
+	position: absolute;
+	z-index: 1;
+	left: -2px;
 	display: none;
 	width: 6px;
 	height: 6px;
@@ -2241,10 +2286,6 @@ footer .sm-footer_cen {
 	display: none;
 }
 
-.card .img img {
-	height: 300px;
-}
-
 }
 
 @media (max-width: 576px) {
@@ -2318,7 +2359,7 @@ footer .sm-footer_cen {
 }
 
 .card .img img {
-	height: 250px;
+	height: 260px;
 }
 
 .card .card__about .title {

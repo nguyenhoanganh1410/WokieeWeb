@@ -1331,12 +1331,15 @@ footer{
      }
      .ul{
          margin-top: 10px;
+        
          li{
+             padding: 6px 0px;
              a{
                  font-size: 14px;
                  line-height: 22px;
                  font-weight: 300;
                  color: rgba($color: #000000, $alpha: 0.6);
+               
                  &:hover{
                      color:royalblue
                  }
@@ -1720,7 +1723,11 @@ footer{
 
 
 
-  .card{ 
+
+
+.card{
+       
+       
     position: relative;
     &:hover{
         .card__about{
@@ -1749,17 +1756,15 @@ footer{
             .clock__day,.clock__hour,.clock__sec,.clock__min{
                 width: 22%;
                 height: 70px;
-                background-color: rgba($color: white, $alpha: 1);
+                background-color: rgba($color: white, $alpha: 0.9);
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 border-radius: 5px;
-              
                 @include xs{
                     height: 50px;
                     font-size: 14px;
-                   
                 }
                 .day{
 
@@ -1787,14 +1792,10 @@ footer{
         }
         img{
             width: 100%;
-            //height: 350px;
-            height: auto;
+            height: 350px;
             object-fit: cover;
-            @include sm{
-                height: 300px;
-            }
             @include xs{
-                height: 250px;
+                height: 260px;
             }
         }
         &:hover{
@@ -1821,13 +1822,14 @@ footer{
                 cursor: pointer;
                 i{
                     font-size: 14px;
+                    padding: 8px;
                 }
                 &:hover{
                     background-color: rgba($color: blue, $alpha: 0.4);
                     i{
                         color: white;
                     }
-                    &.icon_eye,&.icon_heart,&.icon_compare{
+                    &.icon_eye,&.icon_heart,&.icon_compare,&.active-icon_compare{
                         &::after{
                             display: flex;
                             animation: leftToRight 0.8s forwards;
@@ -1840,15 +1842,18 @@ footer{
                     }
                 }
                 &.icon_eye{
+                  
                    
                     &::after{
+                        
                         @include titleinProduct_after(90px,22px,-110px){
+                           
                             content: 'Quick View';
-                            font-size: 13px;
+                            font-size: 14px;
                         }
                     }
                     &::before{
-                        @include titleinProduct_befor(6px,6px,-34px);
+                        @include titleinProduct_befor(6px,6px,-28px);
                     }
 
                 }
@@ -1856,24 +1861,44 @@ footer{
                     &::after{
                         @include titleinProduct_after(90px,22px,-110px){
                             content: 'Add To Wish';
-                            font-size: 13px;
+                            font-size: 14px;
+                        }
+                    }
+                    &::before{
+                        @include titleinProduct_befor(6px,6px,-21px);
+                    }
+                }
+               
+              
+                &.icon_compare{
+                    &::after{
+                        @include titleinProduct_after(120px,22px,-140px){
+                            content: 'Add To Compare';
+                            font-size: 14px;
                         }
                     }
                     &::before{
                         @include titleinProduct_befor(6px,6px,-26px);
                     }
                 }
-                &.icon_compare{
+                &.active-icon_compare{
+                    background:#2879fe;
+                    i{
+                        color: white;
+                    }
                     &::after{
                         @include titleinProduct_after(120px,22px,-140px){
-                            content: 'Add To Compare';
-                            font-size: 13px;
+                            content: 'Remove To Compare';
+                            font-size: 14px;
                         }
                     }
                     &::before{
-                        @include titleinProduct_befor(6px,6px,-34px);
+                        @include titleinProduct_befor(6px,6px,-2px);
                     }
                 }
+
+
+
             }
         }
     }
@@ -1964,9 +1989,9 @@ footer{
             opacity: 0;
             cursor: pointer;
             &:hover{
-               a{
-                background-color: royalblue;
-               }
+                a{
+                    background-color: royalblue;
+                   }
             }
             @include md{
                 opacity: 1;
@@ -1976,7 +2001,6 @@ footer{
             }
             a{
                 padding: 8px 25px;
-               
                 background-color: #2879fe;
                 color: white;
                 border-radius: 6px;

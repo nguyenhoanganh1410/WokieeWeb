@@ -760,6 +760,12 @@ const brandList = products.map((val) => val.brand);
 const uniqueBrandList = brandList.filter((val, idx) => {
   return idx === brandList.findIndex((v) => val === v);
 });
+//render compare title
+var newcompareList = JSON.parse(localStorage.getItem("compareList"))
+
+
+
+
 //render cac brand len nav
 //render brand
 function render(list) {
@@ -858,6 +864,7 @@ function renderProducts(list, bestSeller_list) {
   $(`${bestSeller_list}`).empty();
   list.forEach((val) => {
     const pricesale = +val.sale.slice(0, val.sale.length - 1);
+//const idRadom = radomData_id()
     if (pricesale > 0) {
       $(`${bestSeller_list}`).append(`
         <did class="col-4 col-md-4 col-sm-6">
@@ -867,7 +874,7 @@ function renderProducts(list, bestSeller_list) {
            <div class="icons">
              <span class="icon_eye"><i class="far fa-eye"></i></span>
              <span class="icon_heart"><i class="far fa-heart"></i></span>
-             <span class="icon_compare"><i class="las la-balance-scale" style = "font-size:22px"></i> </span>
+             <span class="icon_compare clickCompare compareRender" id = ${radomData_id()} data-id="${val.id}"><i data-id="${val.id}" class="las la-balance-scale icon__clickCompare" style = "font-size:22px"></i> </span>
            </div>
            <a><img src="${val.img[0]}" alt="" class="goDetails"  style="cursor: pointer;"></a>
            <div class="clock">
@@ -918,7 +925,7 @@ function renderProducts(list, bestSeller_list) {
            <div class="icons">
              <span class="icon_eye"><i class="far fa-eye"></i></span>
              <span class="icon_heart"><i class="far fa-heart"></i></span>
-             <span class="icon_compare"><i class="las la-balance-scale" style = "font-size:22px"></i></span>
+             <span class="icon_compare clickCompare compareRender" id = ${radomData_id()} data-id="${val.id}"><i data-id="${val.id}" class="las la-balance-scale icon__clickCompare" style = "font-size:22px"></i></span>
            </div>
            <a><img src="${val.img[0]}" alt="" class="goDetails" style="cursor: pointer;"></a>
           
@@ -942,6 +949,17 @@ function renderProducts(list, bestSeller_list) {
   });
 
   renderStar(list); //render star
+  renderCompare(newcompareList)  
+}
+
+
+
+function renderCompare(list){
+ console.log("pl");
+  list.forEach(val =>{
+    $(`#${val.id} .compareRender`).removeClass("icon_compare")
+    $(`#${val.id} .compareRender`).addClass("active-icon_compare")
+  })
 }
 
 
@@ -1708,11 +1726,7 @@ function clearAllFill(){
   renderPriceList(priceList)
 }
 
-function radomData_id(){
-  return Math.floor(Math.random() * 100000)
-}
-
-
+  
 
 //chuyen doi tien te
 //$100-$200 => [100,200]
@@ -1744,3 +1758,9 @@ $(document).click(function (e) {
     document.querySelector("body").style.overflow = 'visible';
   }
 });
+
+
+
+function radomData_id(){
+  return Math.floor(Math.random() * 100000)
+}

@@ -40,6 +40,7 @@ var item = []
 if(localStorage.getItem("item") !== null){
      item = JSON.parse(localStorage.getItem("item"))
 }
+console.log(item);
 
 //lay ra so san pham dang co trong cart
 var productCart=[]//luu tru danh sach sp trong cart

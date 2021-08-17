@@ -139,7 +139,7 @@ function renderAccountRepon() {
     <li><a  href="https://translate.google.com.vn"><i class="far fa-user"></i> Resister</a></li>
     <li> <a href="cart.html"><i class="fas fa-shopping-bag"></i> View Cart</a></li>
     <li><a href=""><i class="far fa-heart"></i> Wishlist</a></li>
-    <li><a  href=""><i class="fas fa-balance-scale-left"></i> Compare</a></li>
+    <li><a  href="compare.html"><i class="fas fa-balance-scale-left"></i> Compare</a></li>
     </ul>
   `);
 }
@@ -183,14 +183,13 @@ const nav = [
   },
   {
     name: "BUY THEME",
-    link: "search.html",
+    link: "",
     title:"buytheme"
   },
 ];
 const ul = document.querySelector(".navigation");
 renderNAV(nav);
 
-console.log(ul);
 function renderNAV(nav) {
   const currentPath = window.location.pathname;
   console.log(currentPath);
@@ -208,10 +207,12 @@ function renderNAV(nav) {
 
 //click nav luu xuong local 
 $(".navigation li").click(function (e) { 
- 
+
     var namePath = $(this).text()
+    console.log(namePath);
     localStorage.setItem("pathName", namePath)
 });
+
 
 
 //click mo footer
@@ -238,17 +239,63 @@ $(".div5").click(function (e) {
 });
 
 
-//lay du lieu tu search de tim kiem
-// $(".input_group_txt").keyup(function (e) { 
-//   let value = $(".input_group_txt").val()
-//   $(".input_group_txt").val(value.toUpperCase())
-
-// });
-
 $(".searchBtn").click(function (e) { 
   e.preventDefault();
   const value = $(".input_group_txt").val()
   //dua vao luu tru trong localStorage
   localStorage.setItem("itemSearch", value)
   window.location.href = "search.html"
+});
+
+
+//su kien click vao icon compare 
+
+$(document).click(function (e) { 
+ // e.preventDefault();
+    const target = e.target
+    if(target.classList.contains("icon__clickCompare") ){
+      var compareList = []
+      if(JSON.parse(localStorage.getItem("compareList")) != null){
+        compareList = JSON.parse(localStorage.getItem("compareList")) 
+       
+      }
+      
+
+      //neu khong chua class active-icon_compare
+      if(!target.parentNode.classList.contains("active-icon_compare")){
+           //lay ra data-id
+          const IDproduct = target.dataset.id
+         // console.log(IDproduct);
+          //lay ra san pham co id tuong ung
+          const item = products.filter(val => val.id == IDproduct)
+          compareList.push(item[0])
+          //luu san pham vao localstroge 
+          localStorage.setItem("compareList", JSON.stringify(compareList))
+        
+          const IDcurrent = target.parentNode.id
+          console.log(IDcurrent);
+          //console.log(IDcurrent);
+          $(`#${IDcurrent}`).toggleClass("icon_compare")
+          $(`#${IDcurrent}`).toggleClass("active-icon_compare")
+      }
+      else{
+                 //lay ra data-id
+                 const IDproduct = target.dataset.id
+                // console.log(IDproduct);
+                 //lay ra san pham co id tuong ung
+                 const item = compareList.filter(val => val.id != IDproduct)
+                
+                 //luu san pham vao localstroge 
+                 localStorage.setItem("compareList", JSON.stringify(item))
+               
+                 const IDcurrent = target.parentNode.id
+                 //console.log(IDcurrent);
+                 $(`#${IDcurrent}`).toggleClass("icon_compare")
+                 $(`#${IDcurrent}`).toggleClass("active-icon_compare")
+
+      }
+
+   
+ 
+    }
 });

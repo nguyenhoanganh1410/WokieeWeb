@@ -520,7 +520,7 @@ renderProducts(BestSellerProducts,".bestSeller_list")
 
 //render trendding products
 var trenddingProducts = []
-trenddingProducts = products.sort(function(p1,p2){return p2.Qty- p1.Qty}).filter((val,idx) =>{//lay top 8 sp co sl nhieu nhat trong mang
+trenddingProducts = products.sort(function(p1,p2){return p1.sold - p2.sold}).filter((val,idx) =>{//lay top 8 sp ban it nhat
   return idx < 8
 })
 renderProducts(trenddingProducts,".trendding_list")
@@ -545,7 +545,7 @@ function renderProducts(list,bestSeller_list){
            <div class="icons">
              <span class="icon_eye"><i class="far fa-eye"></i></span>
              <span class="icon_heart"><i class="far fa-heart"></i></span>
-             <span class="icon_compare"><i class="las la-balance-scale" style = "font-size:22px"></i> </span>
+             <span class="icon_compare clickCompare compareRender" id = ${radomData_id()} data-id="${val.id}"><i data-id="${val.id}" class="las la-balance-scale icon__clickCompare" style = "font-size:22px"></i></span>
            </div>
            <a><img src="${val.img[0]}" alt="" style=" cursor: pointer;" class="goDetails"></a>
            <div class="clock">
@@ -594,7 +594,7 @@ function renderProducts(list,bestSeller_list){
            <div class="icons">
              <span class="icon_eye"><i class="far fa-eye"></i></span>
              <span class="icon_heart"><i class="far fa-heart"></i></span>
-             <span class="icon_compare"><i class="las la-balance-scale" style = "font-size:22px"></i></span>
+             <span class="icon_compare clickCompare compareRender" id = ${radomData_id()} data-id="${val.id}"><i data-id="${val.id}" class="las la-balance-scale icon__clickCompare" style = "font-size:22px"></i></span>
            </div>
            <a><img class="goDetails" src="${val.img[0]}" alt=""  style=" cursor:pointer;"></a>
           
@@ -618,7 +618,8 @@ function renderProducts(list,bestSeller_list){
 
     })
   
-
+  
+    
   
 }
 
@@ -645,6 +646,22 @@ function renderStar(list){
   
 })
 
+}
+
+//render compare title
+var compareList = []
+localStorage.setItem("compareList", JSON.stringify(compareList))
+if(localStorage.getItem("compareList") != null){
+   compareList = JSON.parse(localStorage.getItem("compareList"))
+}
+
+//console.log(compareList);
+renderCompare(compareList)
+function renderCompare(list){
+  list.forEach(val =>{
+    $(`#${val.id} .compareRender`).removeClass("icon_compare")
+    $(`#${val.id} .compareRender`).addClass("active-icon_compare")
+  })
 }
 
 
@@ -1009,4 +1026,8 @@ $(document).click(function (e) {
 });
 
 
+
+function radomData_id(){
+  return Math.floor(Math.random() * 100000)
+}
 
