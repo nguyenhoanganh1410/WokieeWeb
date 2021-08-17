@@ -207,10 +207,17 @@ function renderNAV(nav) {
 
 //click nav luu xuong local 
 $(".navigation li").click(function (e) { 
-
+  
     var namePath = $(this).text()
     console.log(namePath);
     localStorage.setItem("pathName", namePath)
+});
+$(".header__tab-top li").click(function (e) { 
+
+  var namePath = $(this).text()
+  console.log(namePath);
+  localStorage.setItem("pathName", namePath)
+  
 });
 
 

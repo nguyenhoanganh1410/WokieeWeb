@@ -1895,8 +1895,12 @@ footer .sm-footer_cen {
 	margin-top: 150px;
 }
 
+.model-dialog .modal-content .close {
+	margin-top: 80px;
+}
+
 .model-dialog .modal-content .content {
-	margin-top: 50px;
+	margin-top: 150px;
 }
 
 .model-dialog .modal-content .content span {
@@ -1927,6 +1931,14 @@ footer .sm-footer_cen {
 	margin: 20px 0;
 	text-align: center;
 	color: #ffec54;
+}
+
+.model-dialog .modal-content .content .box h1 {
+	font-size: 35px;
+}
+
+.model-dialog .modal-content .content .box button a {
+	font-size: 12px;
 }
 
 }
