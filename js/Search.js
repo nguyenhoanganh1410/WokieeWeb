@@ -486,6 +486,7 @@ function renderProducts(list,bestSeller_list){
 
     list.forEach(val =>{
         const pricesale = +val.sale.slice(0, val.sale.length-1)
+        console.log("search");
        if(pricesale > 0){
 
         $(`${bestSeller_list}`).append(`
@@ -496,7 +497,7 @@ function renderProducts(list,bestSeller_list){
            <div class="icons">
              <span class="icon_eye"><i class="far fa-eye"></i></span>
              <span class="icon_heart"><i class="far fa-heart"></i></span>
-             <span class="icon_compare"><i class="las la-balance-scale" style = "font-size:22px"></i> </span>
+             <span class="icon_compare clickCompare compareRender" id = ${radomDataID()} data-id="${val.id}"><i data-id="${val.id}" class="las la-balance-scale icon__clickCompare" style = "font-size:22px"></i> </span>
            </div>
            <a><img src="${val.img[0]}" alt="" style=" cursor: pointer;" class="goDetails"></a>
            <div class="clock">
@@ -545,7 +546,7 @@ function renderProducts(list,bestSeller_list){
            <div class="icons">
              <span class="icon_eye"><i class="far fa-eye"></i></span>
              <span class="icon_heart"><i class="far fa-heart"></i></span>
-             <span class="icon_compare"><i class="las la-balance-scale" style = "font-size:22px"></i></span>
+             <span class="icon_compare clickCompare compareRender" id = ${radomDataID()} data-id="${val.id}"><i data-id="${val.id}" class="las la-balance-scale icon__clickCompare" style = "font-size:22px"></i></span>
            </div>
            <a><img class="goDetails" src="${val.img[0]}" alt=""  style=" cursor:pointer;"></a>
           
@@ -634,7 +635,7 @@ function renderUsers(users, row_page, page) {
            <div class="icons">
              <span class="icon_eye"><i class="far fa-eye"></i></span>
              <span class="icon_heart"><i class="far fa-heart"></i></span>
-             <span class="icon_compare"><i class="las la-balance-scale" style = "font-size:22px"></i> </span>
+             <span class="icon_compare clickCompare compareRender" id = ${radomDataID()} data-id="${val.id}"><i data-id="${val.id}" class="las la-balance-scale icon__clickCompare" style = "font-size:22px"></i> </span>
            </div>
            <a><img src="${val.img[0]}" alt="" class="goDetails"  style="cursor: pointer;"></a>
            <div class="clock">
@@ -685,7 +686,7 @@ function renderUsers(users, row_page, page) {
            <div class="icons">
              <span class="icon_eye"><i class="far fa-eye"></i></span>
              <span class="icon_heart"><i class="far fa-heart"></i></span>
-             <span class="icon_compare"><i class="las la-balance-scale" style = "font-size:22px"></i></span>
+             <span class="icon_compare clickCompare compareRender" id = ${radomDataID()} data-id="${val.id}"><i data-id="${val.id}" class="las la-balance-scale icon__clickCompare" style = "font-size:22px"></i></span>
            </div>
            <a><img src="${val.img[0]}" alt="" class="goDetails" style="cursor: pointer;"></a>
           
@@ -890,3 +891,15 @@ function renderModel(item, listProduct) {
 }
 
 
+//render compare title
+var compareListInSearch = JSON.parse(localStorage.getItem("compareList"))
+
+
+//console.log(compareList);
+renderCompare(compareListInSearch)
+function renderCompare(list){
+  list.forEach(val =>{
+    $(`#${val.id} .compareRender`).removeClass("icon_compare")
+    $(`#${val.id} .compareRender`).addClass("active-icon_compare")
+  })
+}

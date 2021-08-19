@@ -1810,6 +1810,9 @@ footer{
             right: 0;
            opacity: 0;
            transition: all 0.4s;
+           @include xs{
+               opacity: 1;
+           }
             span{
                 width: 45px;
                 height: 45px;

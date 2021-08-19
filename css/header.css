@@ -2362,6 +2362,10 @@ footer .sm-footer_cen {
 	height: 260px;
 }
 
+.card .img .icons {
+	opacity: 1;
+}
+
 .card .card__about .title {
 	font-size: 10px;
 }
