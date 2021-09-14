@@ -40,7 +40,7 @@ var item = []
 if(localStorage.getItem("item") !== null){
      item = JSON.parse(localStorage.getItem("item"))
 }
-console.log(item);
+console.log(item[0].id);
 
 //lay ra so san pham dang co trong cart
 var productCart=[]//luu tru danh sach sp trong cart
@@ -113,7 +113,7 @@ function renderDetails(product){
 
                 <div class="dc--add">
                     <span><i class="far fa-heart"></i> ADD TO WISHLIST</span>
-                    <span><i class="far fa-heart"></i> ADD TO COMPARE</span>
+                    <span class="compareSpan addToCompare"><i class="fas fa-balance-scale-left" style="margin-right:6px"></i>ADD TO COMPARE</span>
                 </div>
 
                   <div class="dc--info">
@@ -956,3 +956,52 @@ image.addEventListener("mouseleave", function(){
     image.style.backgroundPosition = "top"
 })
   
+
+
+//su kien click vao 
+const compareListProduct = JSON.parse(localStorage.getItem("compareList")) ;
+if(compareListProduct.findIndex(val => val.id == item[0].id) !== -1){
+  $(".addToCompare").removeClass("compareSpan")
+  $(".addToCompare").addClass("active_compareSpan")
+}
+
+$(".addToCompare").click(function (e) { 
+  //e.preventDefault();
+  const target = e.target
+ 
+  var compareList = []
+  if(JSON.parse(localStorage.getItem("compareList")) != null){
+    compareList = JSON.parse(localStorage.getItem("compareList")) 
+   
+  }
+  
+
+  //neu khong chua class active-icon_compare
+  if(!target.classList.contains("active_compareSpan")){
+    compareList.push(item[0])
+    //luu san pham vao localstroge 
+    localStorage.setItem("compareList", JSON.stringify(compareList))
+  
+   
+   // console.log(IDcurrent);
+    //console.log(IDcurrent);
+    $(".addToCompare").toggleClass("compareSpan")
+    $(".addToCompare").toggleClass("active_compareSpan")
+  }
+  else if(target.classList.contains("active_compareSpan")){
+     //lay ra san pham co id tuong ung
+     const newCompareList = compareList.filter(val => val.id !== item[0].id)
+    
+             
+     //luu san pham vao localstroge 
+     localStorage.setItem("compareList", JSON.stringify(newCompareList))
+   
+     
+     //console.log(IDcurrent);
+     $(".addToCompare").toggleClass("compareSpan")
+     $(".addToCompare").toggleClass("active_compareSpan")
+  }
+
+
+  
+});

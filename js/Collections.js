@@ -1355,26 +1355,26 @@ $(".quatity-fourCol").click(function (e) {
 ////////////////////////////////////////
 //click chuyen toi tran details
 
-//click lay ra ID de xem chi tiet san pham
-$(document).click(function (e) { 
-  //e.preventDefault();
-    const target = e.target
+// //click lay ra ID de xem chi tiet san pham
+// $(document).click(function (e) { 
+//   //e.preventDefault();
+//     const target = e.target
    
-    if(target.classList.contains("goDetails")){
-      const dataID = target.parentNode.parentNode.parentNode.id
-      //lay ra san pham co ma la dataID
-      const item = products.filter(val =>{
-          return val.id==dataID
-      })
+//     if(target.classList.contains("goDetails")){
+//       const dataID = target.parentNode.parentNode.parentNode.id
+//       //lay ra san pham co ma la dataID
+//       const item = products.filter(val =>{
+//           return val.id==dataID
+//       })
 
-     //dua vao localStore
+//      //dua vao localStore
     
-     localStorage.setItem("item", JSON.stringify(item))
+//      localStorage.setItem("item", JSON.stringify(item))
      
-     window.location.href = "details.html"
-    }
+//      window.location.href = "details.html"
+//     }
     
-});
+// });
 
 
 
